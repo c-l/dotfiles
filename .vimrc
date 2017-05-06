@@ -3,11 +3,13 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes' " adds various colorschemes
+Plug 'godlygeek/csapprox' " fixes colorscheme issues
+Plug 'tpope/vim-commentary' " adds commenting bindings
 
 " Initialize plugin system
 call plug#end()
 
-colorscheme solarized
+colorscheme molokai
 
 set relativenumber 
 set number  

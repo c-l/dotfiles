@@ -14,9 +14,21 @@ colorscheme molokai
 set relativenumber 
 set number  
 
-set tabstop=2       " number of visual spaces per TAB
-set softtabstop=2   " number of spaces in tab when editing
-set expandtab       " tabs are spaces
+let tabsize = 4
+execute "set tabstop=".tabsize
+execute "set softtabstop=".tabsize
+execute "set shiftwidth=".tabsize
+set expandtab " tabs will be expanded to spaces
+
+" Forces vim to obey spacing I want for Python
+" http://stackoverflow.com/questions/21073496/why-does-vim-not-obey-my-expandtab-in-python-files 
+function! SetupPython()
+    let tabsize = 4
+    execute "set tabstop=".tabsize
+    execute "set softtabstop=".tabsize
+    execute "set shiftwidth=".tabsize
+endfunction
+command! -bar SetupPython call SetupPython()
 
 " fixed problems with delete key not working on mac
 set backspace=indent,eol,start 

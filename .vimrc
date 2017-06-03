@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes' " adds various colorschemes
 Plug 'godlygeek/csapprox' " fixes colorscheme issues
 Plug 'tpope/vim-commentary' " adds commenting bindings
+Plug 'tpope/vim-obsession' " continuously updates vim session files
 
 " Initialize plugin system
 call plug#end()

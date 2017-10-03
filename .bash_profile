@@ -78,3 +78,6 @@ export EDITOR="$VISUAL"
 # ssh shortcuts
 alias chia1='ssh -Y driveai@chia1.drive.ai'
 alias chanel6='ssh -Y christopher@chanel6.drive.ai'
+
+# autojump
+. /usr/share/autojump/autojump.bash

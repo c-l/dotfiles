@@ -78,3 +78,6 @@ let g:ConqueGdb_VSplit = g:ConqueGdb_Leader . 'v'
 " vim indent guide configuration
 let g:indent_guides_enable_on_vim_startup = 1
 
+" setting the comment string to //
+autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
+

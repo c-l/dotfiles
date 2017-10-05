@@ -18,7 +18,9 @@ Plug 'nathanaelkane/vim-indent-guides' " show indent guides
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "code completion engine
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } " code completion engine
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'} " to get YCM code completion to work
+Plug 'christoomey/vim-tmux-navigator' " vim tmux
 
 " Initialize plugin system
 call plug#end()
@@ -81,3 +83,5 @@ let g:indent_guides_enable_on_vim_startup = 1
 " setting the comment string to //
 autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
 
+" try ycm global config
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'

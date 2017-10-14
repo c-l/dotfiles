@@ -69,6 +69,9 @@ set mouse=a " enable mouse in vim
 
 let mapleader = ","
 
+" map control t to finding files with fzf
+:nnoremap <C-t> :Files <CR>
+
 " Conque GDB settings
 let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
 let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running

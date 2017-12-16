@@ -150,14 +150,13 @@ fi
 # git autocomplete https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
 # source ~/git-completion.bash
 
+# get rid of dai stackdump
+export DAI_NO_STACKDUMP_PLEASE=1
+
 # drive.ai shortcuts
 alias dpull='docker pull docker.drive.ai/offboard'
-# alias dcmake_debug='dai_cmake_configure_debug ..' # run from ~/driveai/build
-# alias dcmake_release='dai_cmake_configure_release ..' # run from ~/driveai/build
-alias dcmake_debug='cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..' # run from ~/driveai/build
-alias dcmake_release='cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..' # run from ~/driveai/build
-# alias dcmake_debug='cmake -DCMAKE_BUILD_TYPE=Debug -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..' # run from ~/driveai/build
-# alias dcmake_release='cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..' # run from ~/driveai/build
+alias dcmake_release='dai_cmake_configure_release -DCMAKE_CXX_FLAGS="-fdiagnostics-color=always" -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. && cp compile_commands.json ..'
+alias dcmake_debug='dai_cmake_configure_debug -DCMAKE_CXX_FLAGS="-fdiagnostics-color=always" -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. && cp compile_commands.json ..'
 
 # gperftool shortcuts
 alias pprof='google-pprof'
@@ -199,5 +198,10 @@ export EDITOR="$VISUAL"
 alias chia1='ssh -Y driveai@chia1.drive.ai'
 alias chanel6='ssh -Y christopher@chanel6.drive.ai'
 
-# autojump
-. /usr/share/autojump/autojump.bash
+# ssh use nvim instead of vim
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+# correct vim colors in tmux
+alias tmux="tmux -2"

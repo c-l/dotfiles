@@ -117,6 +117,13 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='
+--color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
+--color info:108,prompt:109,spinner:108,pointer:168,marker:168
+'
 
 # MacPorts Installer addition on 2017-08-23_at_11:32:12: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -149,6 +156,7 @@ fi
 
 # git autocomplete https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
 # source ~/git-completion.bash
+alias wip='git add -u; git commit -m "WIP"'
 
 # get rid of dai stackdump
 export DAI_NO_STACKDUMP_PLEASE=1
@@ -187,8 +195,10 @@ export TRAJOPT_LOG_THRESH="ERROR"
 export TRAJOPT_CONVEX_SOLVER="BPMPD"
 # export TRAJOPT_CONVEX_SOLVER="MOSEK"
 
-# driveai ROS
-source ~/driveai/jus/ros/devel/setup.bash
+# driveai dps
+source ~/driveai/pubsub/src/new/nodes/setup.sh
+# # driveai ROS NO LONGER USED :D
+# source ~/driveai/jus/ros/devel/setup.bash
 
 # make vim default editor
 export VISUAL=vim
@@ -197,11 +207,6 @@ export EDITOR="$VISUAL"
 # ssh shortcuts
 alias chia1='ssh -Y driveai@chia1.drive.ai'
 alias chanel6='ssh -Y christopher@chanel6.drive.ai'
-
-# ssh use nvim instead of vim
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
 
 # correct vim colors in tmux
 alias tmux="tmux -2"
